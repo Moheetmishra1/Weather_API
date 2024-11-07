@@ -6,4 +6,26 @@
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
 
+}   
+
+
+.table-details{
+    width: 98vw;
+    margin: 2px auto;
+    display: grid;
+    grid-template-columns: 1.5fr 4fr;
+    grid-template-rows: 85vh;
+    /* justify-content: center; */
+    /* align-items: center; */
+  border: 1px solid black;
+
+    
 }
+
+
+
+
+
+/* .table-details>div{
+    border: 1px solid black;
+} */

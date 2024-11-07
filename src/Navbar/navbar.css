@@ -13,7 +13,7 @@
 
 .navbarBox>div{
     height: 100%;
-    margin: 2px auto;
+    margin: 0px auto;
     border: 1px solid rgb(6, 33, 187);
 }
 
@@ -31,4 +31,38 @@
 form{
     display: flex;
     gap: 1em;
+    position: relative;
+}
+
+.cityListSearch{
+    position: absolute;
+    top: 4em;
+    right: 22.5em;
+    z-index: 1;
+}
+.cityListSearch nav{
+    background-color: skyblue;
+}
+
+.cityListSearch li{
+    width: 40vw;
+    height: 2em;
+    display: grid;
+    grid-template-columns: 3.2fr 2fr 1fr;
+    gap: 0.2em;
+    margin: 2px 0px;
+    box-shadow: 1px 1px 1px 1px rgb(97, 95, 95);
+    border-radius: 1px;
+    font-size: 15px;
+    padding: 0px 6px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.cityListSearch li:hover{
+    background-color: #83b5e4;
+    transform: scale(1.002);
+    transition: all 2s ease-in 0s;
+    font-weight: 600;
 }

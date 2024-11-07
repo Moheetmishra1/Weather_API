@@ -1,18 +1,21 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import './App.css'
 import Navbar from './Navbar/navbar';
 import axios from 'axios';
+import { CityCloud } from './cityCloud/cityCloud';
 
 function App() {
-  let [city, updateCity] = useState({city:'',sCode:'',CCode:''});
-  let [weatherDetails,setDetails]= useState({})
-  let  [geoPosition,setgeoPosition]= useState({latitude:"",longitude:''})
-  let apiKey="2721011f3a3f654e00b464cfbd456a28"
-  let search= useCallback((cityName)=>{
-    updateCity(cityName)
-    
-  },[city]);
+  // let [cities, setCities] = useState([]);
+  let [geoPosition,setgeoPosition]=useState({longitude:'',latitude:''})
+  let [weatherDetails, setWeatherDetails]= useState({})
+ 
+  let apiKey="2721011f3a3f654e00b464cfbd456a28" ;
+  function searchCities(data){
+    setgeoPosition(data)
+  }
+
+ 
   
   function getCurrentLocation() {
     
@@ -44,7 +47,6 @@ function App() {
     }
 }
 
-  console.log(geoPosition);
   
 
   let currentWeather= async()=>{
@@ -52,7 +54,7 @@ function App() {
     
       let {data}= await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${geoPosition.latitude}&lon=${geoPosition.longitude}&appid=${apiKey}`)
       console.log(data);
-      
+      setWeatherDetails({...data,tempType:'F'})
   
     }
     
@@ -69,12 +71,17 @@ function App() {
   },[geoPosition])
 
   
+console.log(geoPosition);
 
   
 return <div className='app-background' >
       
-    <p id="location"></p>
-    <Navbar searchCity={search} />
+    <Navbar searchCity={searchCities} />
+    <div className="table-details">
+   <div>1</div>
+
+  {weatherDetails.name && <CityCloud   city={weatherDetails.name}  countryCode={weatherDetails.sys.country} temp={weatherDetails.main.temp} tempType={weatherDetails.tempType}  max={weatherDetails.main.temp_max} min={weatherDetails.main.temp_min} day={new Date().getDay()} wType={weatherDetails.weather[0].main} /> }
+    </div>
 
 </div>
 
