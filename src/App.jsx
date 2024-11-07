@@ -7,22 +7,20 @@ import axios from 'axios';
 function App() {
   let [city, updateCity] = useState({city:'',sCode:'',CCode:''});
   let [weatherDetails,setDetails]= useState({})
+  let  [geoPosition,setgeoPosition]= useState({latitude:"",longitude:''})
   let apiKey="2721011f3a3f654e00b464cfbd456a28"
   let search= useCallback((cityName)=>{
     updateCity(cityName)
-    console.log(cityName);
     
   },[city]);
   
   function getCurrentLocation() {
-    // Check if Geolocation is supported
+    
     if (window.navigator.geolocation) {
-        // Request the user's current position
         window.navigator.geolocation.getCurrentPosition(
             (position) => {
-                const latitude = position.coords.latitude;
-                const longitude = position.coords.longitude;
-                document.getElementById('location').innerText = `Latitude: ${latitude}, Longitude: ${longitude}`;
+              setgeoPosition({latitude: position.coords.latitude,longitude: position.coords.longitude});
+              
             },
             (err) => {
                 switch(err.code) {
@@ -46,25 +44,36 @@ function App() {
     }
 }
 
-
+  console.log(geoPosition);
+  
 
   let currentWeather= async()=>{
-      let {data}= await axios.get(``)
-  }
-  useEffect(()=>{
-    // console.log("loc",window.navigator.geolocation.getCurrentPosition(success,error));
-   
+
     
-  })
+      let {data}= await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${geoPosition.latitude}&lon=${geoPosition.longitude}&appid=${apiKey}`)
+      console.log(data);
+      
+  
+    }
+    
+  useEffect(()=>{
+    getCurrentLocation()
+    
+  },[])
 
   useEffect(()=>{
-
-  },[city])
+    if(geoPosition.latitude){
+  
+     currentWeather()
+      }
+  },[geoPosition])
 
   
-return <div className='app-background' onLoad={getCurrentLocation}>
-      
 
+  
+return <div className='app-background' >
+      
+    <p id="location"></p>
     <Navbar searchCity={search} />
 
 </div>
