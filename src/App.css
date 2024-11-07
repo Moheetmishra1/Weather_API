@@ -1,0 +1,9 @@
+
+.app-background{
+    height: 100vh;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWUhb4SBeEBV6XSBGDATjtDkfARWg6B0BlZA&s");
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+
+}
