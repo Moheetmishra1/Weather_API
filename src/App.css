@@ -1,30 +1,78 @@
 
 .app-background{
-    height: 100vh;
+    /* height: 100vh; */
     background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWUhb4SBeEBV6XSBGDATjtDkfARWg6B0BlZA&s");
     background-position: 100% 100%;
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
-
+    background-size: cover;
+    background-position: center; 
+    margin:0;
+    padding-bottom: 1em;
 }   
-
+body{
+    background-image: linear-gradient(green , blue);
+}
 
 .table-details{
-    width: 98vw;
+    width: 95vw;
     margin: 2px auto;
     display: grid;
     grid-template-columns: 1.5fr 4fr;
     grid-template-rows: 85vh;
     /* justify-content: center; */
     /* align-items: center; */
-  border: 1px solid black;
+  /* border: 1px solid rgb(190, 21, 21); */
 
-    
+    /* overflow: hidden; */
+}
+.list{
+    width: 280px;
+}
+.details{
+    width: 80%;
+    margin: -1em;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* border: 1px solid gray; */
+    margin-bottom:0.8em ;
 }
 
+.element-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .forecast{
+        display: flex;
+        justify-content: space-evenly;
+    }
 
 
+    /* App.css */
 
+.app-container {
+    width: 95vw;
+    display: flex;
+    /* justify-content: ; */
+    /* flex-direction: column; */
+    position: relative;
+    left: -10vw;
+    align-items: center; /* Center the content horizontally */
+    /* padding: 16px; */
+    /* gap: 0.5em; */
+   /* border: 1px solid blue; */
+  
+}
+
+.card-container {
+    width: 100%;
+    display: flex;
+
+    justify-content: space-evenly; 
+    overflow-y: scroll;
+}
 
 /* .table-details>div{
     border: 1px solid black;

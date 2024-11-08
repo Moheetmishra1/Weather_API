@@ -11,16 +11,19 @@ import axios from "axios";
   document.body.addEventListener('click',()=>setCities([]))
     function updateCity({target:{name,value}}){
       value=value.trim()
-      getLongitude()
-        setCity({...city,[name]:value});
+      setCity({...city,[name]:value});
+      getLongitude({...city,[name]:value})
     }
+    
       function   passCity(event){
         
         event.preventDefault();
-        getLongitude()
+        getLongitude(city)
       }
 
-    async  function getLongitude(){
+    async  function getLongitude(city){
+      console.log("Searching",city);
+      
         let {data} =await  axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city.city},${city.stateCode},${city.countryCode}&limit=20&appid=${apiKey}`);
        
         if(data.length){
@@ -28,11 +31,11 @@ import axios from "axios";
         } 
       }
 
-      useEffect(()=>{
-        if(city.city && city.countryCode && city.stateCode){
-          getLongitude()
-        }
-      },[city])
+      // useEffect(()=>{
+      //   if(city.city && city.countryCode && city.stateCode){
+      //     getLongitude()
+      //   }
+      // },[city])
   
       
 

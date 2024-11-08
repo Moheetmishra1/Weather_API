@@ -1,0 +1,48 @@
+/* SmallWeatherCard.css */
+
+.small-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 8px; /* Reduced padding */
+    margin: 8px; /* Reduced margin */
+    background-color: #4b4545ea;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: white;
+    width: 100%; /* Make the card take full width of its container */
+    max-width: 150px; /* Set a smaller maximum width */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    max-height: 280px;
+    min-width: 100px;
+}
+
+.small-card h2 {
+    font-size: 1em; /* Reduced font size */
+    margin-bottom: 4px; /* Reduced margin */
+}
+
+.small-card p {
+    margin: 2px 0; /* Reduced margin */
+    font-size: 0.9em; /* Slightly smaller font size */
+}
+
+.small-card img {
+    width: 40px; /* Adjust the size of the weather icon */
+    height: 40px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 900px) {
+    .small-card {
+        max-width: 100%; /* Allow full width on smaller screens */
+        padding: 6px; /* Further reduce padding for smaller screens */
+    }
+
+    .small-card h2 {
+        font-size: 0.9em; /* Adjust font size for smaller screens */
+    }
+}
+@media (min-width:105px){
+    .small-card{
+        font-size: 0.8em;
+    }
+}
