@@ -8,6 +8,7 @@ import MoreDetail from './MoreDetails/MoreDetail';
 import WeatherForecastCard from './WeatherForecast/WeatherForecastCard ';
 import CityWeather from './cityCloud/CityWeather/CityWeatherList';
 import CityCloud from './cityCloud/cityCloud';
+import { API_KEY } from './cityCloud/API';
 
 function App() {
   // let [cities, setCities] = useState([]);
@@ -17,7 +18,7 @@ function App() {
   let [reload,setReload]=useState(false)
   let tempType='F'
  
-  let apiKey="2721011f3a3f654e00b464cfbd456a28" ;
+  let apiKey=API_KEY ;
   function searchCities(data){
     setgeoPosition(data)
   }

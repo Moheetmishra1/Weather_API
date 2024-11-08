@@ -1,12 +1,13 @@
-import  {  memo, useEffect, useState } from "react"
+import  {  memo, useState } from "react"
 import "./navbar.css"
 import axios from "axios";
+import { API_KEY } from "../cityCloud/API";
 
  function Navbar({searchCity}){
     let [city,setCity]=useState({city:'',countryCode:"",stateCode:""});
     let [cities,setCities]= useState([])
     
-  let apiKey="2721011f3a3f654e00b464cfbd456a28"
+  let apiKey=API_KEY;
 
   document.body.addEventListener('click',()=>setCities([]))
     function updateCity({target:{name,value}}){
@@ -31,13 +32,7 @@ import axios from "axios";
         } 
       }
 
-      // useEffect(()=>{
-      //   if(city.city && city.countryCode && city.stateCode){
-      //     getLongitude()
-      //   }
-      // },[city])
-  
-      
+    
 
     return (
         <>
